@@ -44,7 +44,7 @@ public class DBMain {
 
 			sta.executeUpdate("CREATE USER 'user'@'localhost' IDENTIFIED BY '1234'");
 			sta.executeUpdate("FLUSH PRIVILEGES");
-			sta.executeUpdate("GRANT INSERT, DELETE, UPDATE, SELECT ON Daejeon. * TO 'user'@'localhost'");
+			sta.executeUpdate("GRANT INSERT, DELETE, UPDATE, SELECT ON company_01. * TO 'user'@'localhost'");
 			sta.executeUpdate("FLUSH PRIVILEGES");
 
 			sta.executeUpdate("SET GLOBAL LOCAL_INFILE = TRUE");
