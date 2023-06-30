@@ -8,8 +8,7 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// new Manage();
-		//new Payment(2);
+		
 		new Home();
 	}
 
