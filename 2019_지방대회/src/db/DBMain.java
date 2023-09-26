@@ -13,12 +13,12 @@ public class DBMain {
 	private Statement sta;
 
 	private String[] tblCreateQuery = {
-			"CREATE TABLE menu("
+		"CREATE TABLE menu("
 			+ "m_no INT PRIMARY KEY NOT NULL AUTO_INCREMENT, "
 			+ "m_group VARCHAR(10), "
 			+ "m_name VARCHAR(30), "
 			+ "m_price INT);", 
-			"CREATE TABLE orderlist("
+		"CREATE TABLE orderlist("
 			+ "o_no INT PRIMARY KEY NOT NULL AUTO_INCREMENT, "
 			+ "o_date DATE, "
 			+ "u_no INT, "
@@ -28,7 +28,7 @@ public class DBMain {
 			+ "o_price INT, "
 			+ "o_count INT, "
 			+ "o_amount INT);", 
-			"CREATE TABLE user("
+		"CREATE TABLE user("
 			+ "u_no INT PRIMARY KEY NOT NULL AUTO_INCREMENT, "
 			+ "u_id VARCHAR(20), "
 			+ "u_pw VARCHAR(4), "
@@ -36,7 +36,7 @@ public class DBMain {
 			+ "u_bd VARCHAR(14), "
 			+ "u_point INT, "
 			+ "u_grade VARCHAR(10));",
-			"CREATE TABLE shopping("
+		"CREATE TABLE shopping("
 			+ "s_no INT PRIMARY KEY NOT NULL AUTO_INCREMENT, "
 			+ "m_no INT, "
 			+ "s_price INT, "
