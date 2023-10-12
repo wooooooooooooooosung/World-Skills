@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -74,6 +75,19 @@ public class Join extends Frame {
 		return t.toArray(new String[0]);
 	}
 	
+	private boolean isExist(String title) {
+		try {
+			ResultSet rs = DB.getResultSet("SELECT * FROM user WHERE u_id = '" + title + "';");
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			showMessage(e.getMessage(), "오류", JOptionPane.ERROR_MESSAGE);
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public void windowClosing(WindowEvent e) {
 		jb[1].doClick();
@@ -85,6 +99,18 @@ public class Join extends Frame {
 			if (jt[0].getText().length() == 0 || jt[1].getText().length() == 0 || jt[2].getText().length() == 0 || jc[0].getSelectedIndex() == 0 || jc[1].getSelectedIndex() == 0) {
 				showMessage("누락된 항목이 있습니다.", "메시지", JOptionPane.ERROR_MESSAGE);
 				return;
+			}
+			if (isExist(jt[1].getText())) {
+				showMessage("아이디가 중복되었습니다.", "메시지", JOptionPane.ERROR_MESSAGE);				
+				return;
+			}
+			try {
+				DB.updateQuery(String.format("INSERT INTO user VALUES(null, '%s', '%s', '%s', '%s', 0, '일반');", 
+						jt[1].getText(), jt[2].getText(), jt[0].getText(), (jc[0].getSelectedItem().toString() + jc[1].getSelectedItem().toString() + jc[2].getSelectedItem().toString())));
+				showMessage("가입완료 되었습니다.", "메시지", JOptionPane.ERROR_MESSAGE);
+				jb[1].doClick();
+			} catch (Exception ex) {
+				showMessage(ex.getMessage(), "오류", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} else if (e.getSource().equals(jb[1])) {
 			dispose();
