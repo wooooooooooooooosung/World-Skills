@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -21,9 +23,9 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-public class Frame extends JFrame implements ActionListener, WindowListener, KeyListener {
+public class Frame extends JFrame implements ActionListener, WindowListener, KeyListener, MouseListener {
 
-	JPanel jp, jp1, jp2, jp3, jp4, np, ep, cp, sp, wp;
+	JPanel jp, jp1, jp2, jp3, jp4, jp5, np, ep, cp, sp, wp;
 	JLabel jl;
 
 	JTable table;
@@ -44,7 +46,6 @@ public class Frame extends JFrame implements ActionListener, WindowListener, Key
 
 	public void showFrame() {
 		this.pack();
-		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
@@ -133,5 +134,35 @@ public class Frame extends JFrame implements ActionListener, WindowListener, Key
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

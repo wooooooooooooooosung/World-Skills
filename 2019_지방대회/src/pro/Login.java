@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -41,7 +42,7 @@ public class Login extends Frame {
 
 		String bs[] = { "로그인", "회원가입", "종료" };
 		cp.add(jp = new JPanel(), BorderLayout.EAST);
-		jp.add(jb[0] = new JButton("<html><body><center><br>로그인<br><br></center></body></html>"));
+		jp.add(jb[0] = new JButton("<html><body><br>로그인<br><br></body></html>"));
 
 		cp.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 10));
 
@@ -58,11 +59,19 @@ public class Login extends Frame {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(jb[0])) {
-			System.out.println("asd");
+			if (jtt[0].getText().length() == 0 || jtt[1].getText().length() == 0) {
+				showMessage("빈칸이 존재합니다.", "메시지", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			if (jtt[0].getText().equals("admin") && jtt[1].getText().equals("1234")) {
+				dispose();
+				new Admin();
+			}
 		} else if (e.getSource().equals(jb[1])) {
-			System.out.println("asd");
+			dispose();
+			new Join();
 		} else if (e.getSource().equals(jb[2])) {
-			System.out.println("asd");
+			System.exit(0);
 		}
 	}
 }
